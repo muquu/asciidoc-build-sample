@@ -1,0 +1,10 @@
+{
+    "asciidoc.use_asciidoctor_js": false,
+    "asciidoc.asciidoctor_command": "asciidoctor -r asciidoctor-diagram -o-",
+    "asciidoc.preview.attributes": {
+        "mmdc": "/path/to/here/node_modules/.bin/mmdc",
+        "source-highlighter": "coderay",
+        "imagesoutdir": "/path/to/here/src/images",
+        "outdir": "/path/to/here/tmp"
+    }
+}

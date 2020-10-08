@@ -1,0 +1,106 @@
+include::./attribute.adoc[]
+
+=== ブロック
+ 
+.コードブロックの例
+[source,ruby]
+----
+require 'optparse'
+opt = OptionParser.new
+ 
+opt.on('-a') {|v| p v }
+opt.on('-b') {|v| p v }
+ 
+opt.parse!(ARGV)
+p ARGV
+ 
+ruby sample.rb -a foo bar -b baz
+# => true
+     true
+     ["foo", "bar", "baz"]
+----
+ 
+コードハイライトもされるので、見た目も良い
+
+=== 画像貼り付けサンプル
+
+image::sample01.png[]
+
+// == Ditaa
+// .Ditaaによるダイアグラム
+// [ditaa]
+// ....
+// +-------------+    +-------------+
+// | Asciidoctor |    | Asciidoctor |
+// |   diagram   |----|   日本語    |
+// |             |    |             |
+// +-------------+    +-------------+
+// ....
+
+// == PlantUML
+// .PlantUMLによるダイアグラム
+// [plantuml]
+// ....
+// Class01 <|-- Class02
+// Class03 *-- Class04
+// Class05 o-- Class06
+// Class07 .. Class08
+// Class09 -- Class10
+// ....
+
+=== Mermaidによるクラス図の例
+UMLはMermaidで記述できる。日本語（UTF-8）でも記述可能。
+
+.クラス図
+[mermaid]
+....
+ classDiagram 
+      Animal <|-- Duck
+      Animal <|-- Fish
+      Animal <|-- Zebra
+      Animal : +int age
+      Animal : +String gender
+      Animal: +isMammal()
+      Animal: +mate()
+      class Duck{
+          +String beakColor
+          +swim()
+          +quack()
+      }
+      class Fish{
+          -int sizeInFeet
+          -canEat()
+      }
+      class Zebra{
+          +bool is_wild
+          +run()
+      }
+
+....
+
+=== Mermaidによるフローチャートの例
+
+.フローチャート
+[mermaid]
+----
+graph LR;
+    AsciiDocテキスト -- asciidocotor-pdf --> PDF仕様書;
+    PlantUMLテキスト -- PlantUML --> png画像;
+    png画像 -- asciidoctor-pdf --> PDF仕様書;
+----
+
+=== Mermaidによるシーケンス図の例
+
+.シーケンス図
+[mermaid]
+----
+sequenceDiagram
+    Alice ->> Bob: Hello Bob, how are you?
+    Bob-->>John: How about you John?
+    Bob--x Alice: I am good thanks!
+    Bob-x John: I am good thanks!
+    Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
+
+    Bob-->Alice: Checking with John...
+    Alice->John: Yes... John, how are you?
+----
